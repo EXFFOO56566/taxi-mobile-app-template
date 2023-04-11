@@ -1,0 +1,525 @@
+@import "_mixins.scss";
+
+@import url(http://fonts.googleapis.com/css?family=Raleway);
+
+$fontCommon: 'Raleway', sans-serif;
+$primaryColor: #FFC007;
+$secondColor: #FF9F00;
+$textColor: #212121;
+$bgColor: #d6d6d6;
+// Base
+.alotaxi, .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    font-family: $fontCommon;
+}
+.row, .row .col {
+    margin: 0;
+    padding: 0;
+}
+// Help Class
+.text-center {
+    text-align: center;
+}
+.content-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.alotaxi-btn {
+    display: inline-block;
+    height: 72px;
+    width: 100%;
+    max-width: 275px;
+    text-align: center;
+    background-color: #2196f3;
+    color: #feffff;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 3.5em;
+    position: relative;
+    cursor: pointer;
+    border: none;
+    @include prefixed(border-radius , 0);
+    @include prefixed(box-shadow, 0 3px 3px rgba(#000, 0.35));
+    .icon {
+        position: absolute;
+        top: 50%;
+        margin-top: -20px;
+        &.left {
+            left: 30px;
+        }
+    }
+    &:hover,&:active,&.activated {
+        background-color: #1e85d9;
+        color: #feffff;
+    }
+    &.btn-seat {
+        background-color: #536dfe;
+        &:hover,&:active,&.activated {
+            background-color: #4b62e3;
+        }
+    }
+    &.cancel {
+        background-color: #ea1d2c;
+        &:hover,&:active,&.activated {
+            background-color: #d11925;
+        }
+    }
+    &.yellow {
+        background-color: #ffc107;
+        color: #212121;
+        &:hover,&:active,&.activated {
+            background-color: #e5ae07;
+        }
+    }
+    &.facebook {
+        background-color: #2196f3;
+        &:hover,&:active,&.activated {
+            background-color: #1e85d9;
+        }
+    }
+    &.google-plus {
+        background-color: #f44336;
+        &:hover,&:active,&.activated {
+            background-color: #db3c30;
+        }
+    }
+}
+.bg-image {
+    background: url('../img/background.jpg') center center repeat $bgColor;
+}
+.bg-content-common {
+    @extend .bg-image;
+    &:before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top:0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.3);
+    } 
+}
+.alotaxi-menu-btn span {
+    font-size: 40px;
+    color: #212121;
+}
+// Header
+.alotaxi .bar-header,
+.alotaxi .bar-header .title {
+    height: 50px;
+    border: none;
+}
+.alotaxi .bar .title {
+    font-size: 20px;
+    font-weight: 300;
+    text-transform: uppercase;
+    line-height: 50px;
+}
+.bar-alotaxi .bar {
+    background-color: $primaryColor;
+    color: $textColor;
+}
+.alotaxi .has-header {
+    top: 50px;
+}
+
+// Login Content
+.alotaxi .login-content {
+    @extend .bg-image;
+}
+.alotaxi .logo div > img {
+    max-width: 100%;
+    border: 8px solid #ce9a00;
+    @include prefixed(border-radius, 50%);
+}
+.version small {
+    font-size: 12px;
+    color: #fefeff;
+}
+.text-lead h6 {
+    color: #fff;
+    font-size: 12px;
+}
+// Login spcaing
+.login-content {
+    .logo {
+        margin-top: 50px;
+    }
+    .text-lead {
+        margin-bottom: 10px;
+    }
+    .alotaxi-btn {
+        &.facebook {
+            margin-bottom: 25px;
+        }
+        &.google-plus {
+            margin-bottom: 20px;
+        }
+    }
+}
+// request car content
+.contain-form-pick-up {
+    padding-top: 45px;
+    .contain {
+        position: relative;
+        width: 100%;
+    }
+}
+.bar-alotaxi {
+    &.overlay {
+        &:before {
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            z-index: 999999999;
+            content: '';
+            top: 0;
+            left: 0;
+        }
+    }
+}
+.form-pick-up {
+    width: 100%;
+    padding: 0 25px;
+    margin-top: 26px;
+    .row {
+        background-color: #fff;
+        height: 73px;
+        margin-top: 8px;
+        @include prefixed(box-shadow, 0 3px 3px rgba(#000, 0.35));
+        input[type=text] {
+            width: 100%;
+            height: 100%;
+            padding: 0 50px 0 65px;
+            line-height: 4.5em;
+            font-size: 16px;
+        }
+        .col {
+            position: relative;
+            .lbl {
+                position: absolute;
+                top: 50%;
+                &.left {
+                    left: 15px;
+                    font-size: 16px;
+                    margin-top: -10px;
+                }
+                &.right {
+                    right: 20px;
+                    font-size: 20px;
+                    margin-top: -10px;
+                }
+            }
+        }
+    }
+    .pickup-from {
+        input, span {
+            color: #536dfe;
+        }
+    }
+    .pickup-to {
+        input, span {
+            color: #ff0000;
+        }
+    }
+}
+.request-car-content {
+    .bar-footer {
+        padding: 0;
+        border: none;
+    }
+    .footer-container {
+        height: 72px;
+    }
+    .text-notice, .btn-next {
+        font-size: 20px;
+    }
+    .text-notice {
+        background-color: #ffc107;
+        @extend .content-center;
+    }
+    .btn-next {
+        background-color: #ffa000;
+        @extend .content-center;
+        cursor: pointer;
+    }
+}
+
+.seat-avaiable {
+    position: absolute;
+    z-index: 9;
+    width: 100%;
+    height: 100%;
+    padding-top: 250px;
+    padding-bottom: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    .button {
+        margin-bottom: 15px;
+    }
+    &.tentative {
+        padding-top: 30px;
+    }
+}
+.chair {
+    display: inline-block;
+    width: 60px;
+    float: left;
+    text-align: right;
+}
+.chair-icon {
+    display: inline-block;
+    width: 9px;
+    height: 11px;
+    background: url('../img/chair-icon.png') center center no-repeat;
+}
+ // tentative
+.tentative {
+    .logo {
+        margin-bottom: 15px;
+    }
+    .text-lead {
+        span, h4 {
+            font-family: Arial;
+            color: #ffffff;
+        }
+        span {
+            font-size: 16px;
+        }
+        h4 {
+            font-size: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+    }
+    .button {
+        &.cancel {
+            margin-top: 40px;
+        }
+    }
+ }
+ // Confirm
+ .confirm-content {
+     //@extend .bg-image;
+     .heading {
+         display: block;
+         height: 220px;
+         width: 100%;
+         background: url('../img/confirm-header-image.jpg') center center no-repeat;
+         position: relative;
+         @include prefixed(box-shadow, 0 -25px 50px #000 inset);
+         margin-bottom: 40px;
+         &:before {
+             content: '';
+             position: absolute;
+             top: 0;
+             left: 0;
+             width: 100%;
+             height: 100%;
+             background: rgba(#ffc107, 0.2);
+         }
+         .avatar {
+             @include prefixed(border-radius, 50%);
+             @include prefixed(box-shadow, 0 3px 3px rgba(#000, 0.35));
+             background-position: center center;
+             background-size: cover;
+             background-color: $bgColor;
+             display: block;
+             position: absolute;
+             z-index: 1;
+             height: 134px;
+             width: 134px;
+             left: 50%;
+             margin-left: -67px;
+             bottom: -28px;
+         }
+         .back-button {
+             float: left;
+             margin-top: 10px;
+             .icon:before {
+                 color: #fff;
+             }
+         }
+     }
+     .person-info {
+         h4, span {
+             text-transform: uppercase;
+             color: #212121;
+         }
+         h4 {
+             font-size: 20px;
+             margin-bottom: 0;
+             font-weight: bold;
+         }
+         span {
+             font-size: 10px;
+         }
+     }
+ }
+ .driver-info {
+     .row {
+         &:first-child {
+             padding-top: 10px;
+         }
+         padding: 18px 25px;
+         .col {
+             color: #212121;
+             &:first-child {
+                 text-align: left;
+             }
+             &:last-child {
+                 text-align: right;
+                 font-weight: bold;
+             }
+         }
+     }
+ }
+
+//passenger-starting-content
+.passenger-starting-content {
+    .heading {
+        //display: block;
+        height: 85px;
+        width: 100%;
+        background: url('../img/confirm-header-image.jpg') center center no-repeat;
+        position: relative;
+        @include prefixed(box-shadow, 0 -25px 50px #000 inset);
+        text-transform: uppercase;
+        font-size: 20px;
+        font-weight: bold;
+        color: #fff;
+        @extend .content-center;
+        .col {
+            position: relative;
+            z-index: 2;
+        }
+        &:before {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top:0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.7);
+        }
+    }
+    .passenger {
+        position: absolute;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        .driver-info {
+            .row {
+                &:first-child {
+                    padding-top: 30px;
+                }
+                .col {
+                    &, span {
+                        color: #fff;
+                    }
+                }
+            }
+        }
+        .begin-btn {
+            margin-top: 10px;
+            margin-bottom: 30px;
+        }
+    }
+}
+
+//driver-starting-content
+.driver-starting-content {
+    .driver-heading {
+        h4 {
+            text-transform: uppercase;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+    }
+    .driver-info {
+        .col {
+            color: #fff;
+        }
+    }
+    .begin-btn {
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+}
+
+// end page
+.end-page {
+    color :#fff;
+    .cup {
+        margin-top: 30px;
+        span {
+            font-size: 166px;
+        }
+    }
+    .text-info {
+        * {
+            color: #fff;
+        }
+        h6, h4 {
+            font-size: 20px;
+        }
+        h1 {
+            font-size: 53px;
+            font-weight: bold;
+            margin-top: 0;
+            margin-top: -10px;
+            small {
+                font-size: 16px;
+                font-weight: inherit;
+            }
+        }
+        h4 {
+            text-transform: uppercase;
+        }
+    }
+    .rating {
+        margin: 10px 0 40px;
+        .rating-value {
+            color: #fff200;
+            font-size: 33px;
+            margin-left: 10px;
+            cursor: pointer;
+            &:first-child {
+                margin-left: 0;
+            }
+            &:hover {
+                color: #fff;
+            }
+        }
+    }
+}
+
+// Customize ionic default
+.alotaxi {
+    .back-button {
+        .icon {
+            &:before {
+                color: #212121;
+                font-family: 'Pe-icon-7-stroke';
+                font-size: 40px;
+                content: "\e686";
+            }
+        }
+        &.activated {
+            .icon {
+                &:before {
+                    color: #000;
+                }
+            }
+        }
+    }
+    .back-text {
+        display: none!important;
+    }
+}

@@ -1,0 +1,70 @@
+<ion-view hide-nav-bar="true">
+  <ion-content class="confirm-content text-center">
+    <div class="row heading">
+        <div class="col">
+            <button ng-click="resetRequestCar()" class="button back-button buttons button-clear header-item">
+                <i class="icon"></i>
+            </button>
+
+			<div ng-click="passengerStarting()" class="avatar" style="background-image: url({{ driver.avatar }})"></div>
+        </div>
+    </div>
+    <div class="row person-info">
+        <div class="col">
+            <h4>{{ driver.name }}</h4>
+			<span>Taxi driver</span>
+        </div>
+    </div>
+	<div class="driver-info">
+		<div class="row">
+			<div class="col col-67">
+				Distance:
+			</div>
+			<div class="col col-33">
+				{{ driver.distance }}
+			</div>
+		</div>
+		<div class="row">
+			<div class="col col-67">
+				<span class="pe-7s-user"></span>
+				Your driver name:
+			</div>
+			<div class="col col-33">
+				{{ driver.code }}
+			</div>
+		</div>
+		<div class="row">
+			<div class="col col-67">
+				<span class="pe-7s-car"></span>
+				Car plate:
+			</div>
+			<div class="col col-33">
+				{{ driver.carPlate }}
+			</div>
+		</div>
+		<div class="row">
+			<div class="col col-67">
+				<span class="pe-7s-phone"></span>
+				Driver mobile:
+			</div>
+			<div class="col col-33">
+				{{ driver.phone }}
+			</div>
+		</div>
+		<div class="row">
+			<div class="col col-67">
+				<span class="pe-7s-cup"></span>
+				Rating:
+			</div>
+			<div class="col col-33">
+				{{ driver.rating }}
+			</div>
+		</div>
+	</div>
+	<div class="row">
+        <div class="col">
+            <a ng-click="passengerStarting()" class="button alotaxi-btn cancel" href="javascript:;">Cancel Trip</a>
+        </div>
+    </div>
+  </ion-content>
+</ion-view>

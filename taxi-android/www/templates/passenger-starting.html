@@ -1,0 +1,90 @@
+<ion-view title="Start trip now" hide-back-button="true">
+    <ion-nav-buttons side="left">
+        <button class="button-clear alotaxi-menu-btn" ng-click="default()">
+            <span class="pe-7s-menu"></span>
+        </button>
+    </ion-nav-buttons>
+  <ion-content class="passenger-starting-content text-center">
+    <div class="passenger">
+        <div class="row heading">
+            <div class="col">
+    			Your driver is arrived.
+            </div>
+        </div>
+        <div class="driver-info">
+            <div class="row">
+                <div class="col col-67">
+                    <span class="pe-7s-user"></span>
+                    Your driver name:
+                </div>
+                <div class="col col-33">
+                    {{ driver.code }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-67">
+                    <span class="pe-7s-phone"></span>
+                    Driver mobile:
+                </div>
+                <div class="col col-33">
+                    {{ driver.phone }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-67">
+                    <span class="pe-7s-cup"></span>
+                    Rating:
+                </div>
+                <div class="col col-33">
+                    {{ driver.rating }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-67">
+                    <span class="pe-7s-car"></span>
+                    Start:
+                </div>
+                <div class="col col-33">
+                    {{ driver.start }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-67">
+                    <span class="pe-7s-car"></span>
+                    End:
+                </div>
+                <div class="col col-33">
+                    {{ driver.end }}
+                </div>
+            </div>
+        </div>
+        <div class="row begin-btn">
+            <div class="col">
+                <a ng-click="passengerEnd()" class="button alotaxi-btn" href="javascript:;">Begin Trip</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <a ng-click="doLogin()" class="button alotaxi-btn cancel" href="javascript:;">Cancel Trip</a>
+            </div>
+        </div>
+    </div>
+    <div class="row gg-map">
+        <div class="col">
+            <div map-lazy-load="http://maps.google.com/maps/api/js">
+              <map center="{{ place.to.formatted_address }}" zoom="10" style="height: 600px">
+                <marker position="{{ place.from.formatted_address }}" icon="img/marker-icon-a.png"></marker>
+                <marker position="{{ place.to.formatted_address }}" icon="img/marker-icon-b.png"></marker>
+                <directions
+                  draggable="true"
+                  origin="{{ place.from.formatted_address }}"
+                  destination="{{ place.to.formatted_address }}"
+                  suppress-markers="true"
+                  polyline-options="{strokeColor:'#696fbf', strokeOpacity: 0, icons: [{icon: { path: 'M 0,-1 0,1', strokeOpacity: 1, scale: 2 }, offset: '0', repeat: '10px' }]}">
+                </directions>
+              </map>
+            </div>
+        </div>
+    </div>
+  </ion-content>
+</ion-view>

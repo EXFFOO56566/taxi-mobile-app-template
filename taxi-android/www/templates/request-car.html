@@ -1,0 +1,113 @@
+<ion-view title="Request Car" class="request-car-content">
+    <ion-header-bar class="contain-form-pick-up">
+        <div ng-show="showFormPickup" class="contain">
+            <div class="form-pick-up">
+              <div class="row pickup-from">
+                <div class="col">
+                    <span class="lbl left">From:</span>
+                    <span class="pe-7s-map-marker lbl right"></span>
+                    <input class="alotaxi-input" type="text" places-auto-complete types="['address']" on-place-changed="placePickupFrom(place.from)" placeholder="Enter address" />
+                </div>
+              </div>
+              <div class="row pickup-to">
+                <div class="col">
+                    <span class="lbl left">To:</span>
+                    <span class="pe-7s-map-marker lbl right"></span>
+                    <input class="alotaxi-input" type="text" places-auto-complete types="['address']" on-place-changed="placePickupTo(place.to)" placeholder="Enter address" />
+                </div>
+              </div>
+          </div>
+        </div>
+    </ion-header-bar>
+    <ion-content>
+        <div ng-show="showRequestWating" class="tentative seat-avaiable text-center">
+            <div class="row logo">
+                <div class="col">
+                    <img src="img/logo.png" alt="Logo" />
+                </div>
+            </div>
+            <div class="row text-lead">
+                <div class="col">
+                    <h4>Your request LINKX has sent</h4>
+                    <span>awaiting for driver confirmation.</span>
+                    <br /><br />
+                    <span>Please wait!​</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <a ng-click="resetRequestCar()" class="alotaxi-btn button cancel" href="javascript:;">Cancel Trip</a>
+                </div>
+            </div>
+        </div>
+        <div ng-show="showSeatAvaiable" class="seat-avaiable text-center">
+            <div class="row">
+                <div class="col">
+                    <a class="button alotaxi-btn seat-available" ng-click="requestCarFinally(1)" href="javascript:;">
+                        <div class="chair">
+                            <span class="chair-icon"></span>
+                        </div>
+                        1 Seat Avaiable
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <a class="button alotaxi-btn seat-available" ng-click="requestCarFinally(2)" href="javascript:;">
+                        <div class="chair">
+                            <span class="chair-icon"></span>
+                            <span class="chair-icon"></span>
+                        </div>
+                        2 Seat Avaiable
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <a class="button alotaxi-btn seat-available" ng-click="requestCarFinally(3)" href="javascript:;">
+                        <div class="chair">
+                            <span class="chair-icon"></span>
+                            <span class="chair-icon"></span>
+                            <span class="chair-icon"></span>
+                        </div>
+                        3 Seat Avaiable
+                    </a>
+                </div>
+            </div>
+        </div>
+    <div class="row gg-map">
+        <div class="col">
+            <div map-lazy-load="http://maps.google.com/maps/api/js">
+              <map center="{{ place.to.formatted_address }}" zoom="10" style="height: 580px">
+
+                <marker position="{{ place.other01.formatted_address }}" icon="img/marker-normal.png"></marker>
+                <marker position="{{ place.other02.formatted_address }}" icon="img/marker-normal.png"></marker>
+                <marker position="{{ place.other03.formatted_address }}" icon="img/marker-normal.png"></marker>
+                <marker position="{{ place.other04.formatted_address }}" icon="img/marker-normal.png"></marker>
+                <marker position="{{ place.other05.formatted_address }}" icon="img/marker-normal.png"></marker>
+
+                <marker position="{{ place.from.formatted_address }}" icon="img/marker-icon-a.png"></marker>
+                <marker position="{{ place.to.formatted_address }}" icon="img/marker-icon-b.png"></marker>
+                <directions
+                  draggable="true"
+                  origin="{{ place.from.formatted_address }}"
+                  destination="{{ place.to.formatted_address }}"
+                  suppress-markers="true"
+                  polyline-options="{strokeColor:'#ea1d2c', strokeOpacity: 0, icons: [{icon: { path: 'M 0,-1 0,1', strokeOpacity: 1, scale: 2 }, offset: '0', repeat: '10px' }]}">
+                </directions>
+              </map>
+            </div>
+        </div>
+    </div>
+    </ion-content>
+    <ion-footer-bar class="footer-container text-center">
+      <div class="row">
+          <div class="col col-66 text-notice">
+              <span>Find 5 car in 3,000m radius</span>
+          </div>
+          <div ng-click="requestCar()" class="col col-33 btn-next">
+              <span>Next</span>
+          </div>
+      </div>
+    </ion-footer-bar>
+</ion-view>
